@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgoovjp4i1nn0"
+path="res://.godot/imported/6-10. Terarium (Polar Biome).mp3-57d74bcfbb67b7c08bfda3f6c1abbd3a.mp3str"
+
+[deps]
+
+source_file="res://Music/6-10. Terarium (Polar Biome).mp3"
+dest_files=["res://.godot/imported/6-10. Terarium (Polar Biome).mp3-57d74bcfbb67b7c08bfda3f6c1abbd3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

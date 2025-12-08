@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://j6m3k58kvm07"]
+
+[ext_resource type="Texture2D" uid="uid://dbbiqpmhteb7p" path="res://Textures/Piskel.png" id="1_6vheq"]
+[ext_resource type="AudioStream" uid="uid://c8g15mxjakr0k" path="res://Music/pixel-jump-319167.mp3" id="2_e3gs7"]
+
+[sub_resource type="GDScript" id="GDScript_va7m3"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 135
+const JUMP_VELOCITY = -275
+@onready var sfx_jump: AudioStreamPlayer = $sfx_jump
+
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		sfx_jump.play()
+ 
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvvdy"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1jbf"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi2wx"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xjbt"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy3yb"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1405j"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivlpf"]
+atlas = ExtResource("1_6vheq")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gmd7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvvdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1jbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi2wx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xjbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy3yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1405j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivlpf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eqsl"]
+size = Vector2(12, 12)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_va7m3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(2.5, 3.5)
+scale = Vector2(1.15625, 1.21875)
+sprite_frames = SubResource("SpriteFrames_gmd7o")
+autoplay = "default"
+frame_progress = 0.0622566
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_0eqsl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-6, -8)
+zoom = Vector2(4.5, 4.5)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 6.7
+
+[node name="sfx_jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_e3gs7")
+volume_db = -14.71
+autoplay = true

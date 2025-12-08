@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7dlifuk14cr0"]
+
+[ext_resource type="Script" uid="uid://bkmni8ck16kp2" path="res://Scripts/level_1_finish.gd" id="1_4b73f"]
+[ext_resource type="Texture2D" uid="uid://cxhnrd0qiw08" path="res://Textures/Yellow.png" id="1_7elbh"]
+[ext_resource type="AudioStream" uid="uid://dregmgaq16ocu" path="res://Music/3-08 - Act Clear (1).mp3" id="3_mpedh"]
+
+[node name="Level 1 Finish" type="Node2D"]
+script = ExtResource("1_4b73f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 1347.0
+offset_bottom = 805.0
+texture = ExtResource("1_7elbh")
+stretch_mode = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 729.0
+offset_top = 420.0
+offset_right = 923.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 30
+text = "Level 2"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 228.0
+offset_top = 420.0
+offset_right = 422.0
+offset_bottom = 510.0
+theme_override_font_sizes/font_size = 30
+text = "Retry"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 419.0
+offset_right = 673.0
+offset_bottom = 509.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 322.0
+offset_top = 190.0
+offset_right = 846.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 60
+text = "      CONGRATS 
+YOU BEAT LEVEL 1"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mpedh")
+autoplay = true
+parameters/looping = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

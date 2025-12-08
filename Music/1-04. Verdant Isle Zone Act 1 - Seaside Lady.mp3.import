@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0lwby2pfyab6"
+path="res://.godot/imported/1-04. Verdant Isle Zone Act 1 - Seaside Lady.mp3-f1eb31e81f77fd1dbd77e2a99551c5d8.mp3str"
+
+[deps]
+
+source_file="res://Music/1-04. Verdant Isle Zone Act 1 - Seaside Lady.mp3"
+dest_files=["res://.godot/imported/1-04. Verdant Isle Zone Act 1 - Seaside Lady.mp3-f1eb31e81f77fd1dbd77e2a99551c5d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

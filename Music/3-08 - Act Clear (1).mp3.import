@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dregmgaq16ocu"
+path="res://.godot/imported/3-08 - Act Clear (1).mp3-22f6fa7b614217d29b9c95ee77383581.mp3str"
+
+[deps]
+
+source_file="res://Music/3-08 - Act Clear (1).mp3"
+dest_files=["res://.godot/imported/3-08 - Act Clear (1).mp3-22f6fa7b614217d29b9c95ee77383581.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
